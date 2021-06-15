@@ -5,9 +5,23 @@
 
 
 # useful for handling different item types with a single interface
-from itemadapter import ItemAdapter
+# from itemadapter import ItemAdapter
+import pymongo
 
+from settings import mongo_host, mongo_port, mongo_db_name, mongo_db_collection
 
 class DoubanCrawlerPipeline:
+    def __init__(self):
+        host = mongo_host
+        port = mongo_port
+        db_name = mongo_db_name
+        sheet_name = mongo_db_collection
+
+        client = pymongo.MongoClient(host=host, port=port)
+        db = client[db_name]
+        self.post = db[sheet_name]
+
     def process_item(self, item, spider):
+        data = dict(item)
+        self.post.insert(data)
         return item

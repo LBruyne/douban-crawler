@@ -1,5 +1,19 @@
 # douban-crawler
-利用Python的Scrapy框架爬取豆瓣电影信息
+利用Python的Scrapy框架爬取豆瓣电影信息，项目添加了user-agent和proxy代理两种方式来进行爬虫隐藏。
+
+## Quick Start
+
+### 启动应用
+```shell
+pip install -r requirements.txt
+```
+然后运行__init__.py文件即可
+
+### 应用截图
+![img.png](asset/result.png)
+
+
+### 
 
 ## scrapy框架组成
 
@@ -32,3 +46,5 @@ brew install mongodb-community@4.4
 ### MongoDB使用注意
 
 MongoDB中的数据库不是实时创建的，需要在插入了文档后，才能够生效（show dbs才能查询到）
+
+## 

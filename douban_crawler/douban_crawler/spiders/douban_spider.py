@@ -29,6 +29,7 @@ class DoubanSpiderSpider(scrapy.Spider):
 
             movie_item['describe'] = item.xpath(".//p[@class='quote']/span/text()").extract_first()
 
+            # 将数据yield到pipeline中
             yield movie_item
 
         # 解析下一页，取得页面内"后一页"对应的XPath

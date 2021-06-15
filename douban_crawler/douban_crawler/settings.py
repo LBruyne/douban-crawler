@@ -14,7 +14,7 @@ NEWSPIDER_MODULE = 'douban_crawler.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"
+# USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.101 Safari/537.36"
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -52,9 +52,11 @@ DOWNLOAD_DELAY = 0.5
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#DOWNLOADER_MIDDLEWARES = {
-#    'douban_crawler.middlewares.DoubanCrawlerDownloaderMiddleware': 543,
-#}
+DOWNLOADER_MIDDLEWARES = {
+#     # 'douban_crawler.middlewares.DoubanCrawlerDownloaderMiddleware': 543,
+#     'douban_crawler.middlewares.ProxyMiddleware': 543,
+      'douban_crawler.middlewares.UserAgentMiddleware': 543
+}
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
@@ -64,9 +66,9 @@ DOWNLOAD_DELAY = 0.5
 
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'douban_crawler.pipelines.DoubanCrawlerPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'douban_crawler.pipelines.DoubanCrawlerPipeline': 300,
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
@@ -88,3 +90,10 @@ DOWNLOAD_DELAY = 0.5
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# MongoDB settings
+mongo_host = '127.0.0.1'
+mongo_port = 27017
+mongo_db_name = 'douban_movies'
+mongo_db_collection = 'movies '
+

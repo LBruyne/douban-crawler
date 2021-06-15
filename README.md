@@ -1,5 +1,7 @@
 # douban-crawler
-利用Python的Scrapy框架爬取豆瓣电影信息，项目添加了user-agent和proxy代理两种方式来进行爬虫隐藏。
+利用Python的Scrapy框架爬取豆瓣电影信息，项目添加了user-agent和proxy代理两种方式来进行爬虫隐藏，并将获取的数据保存到MongoDB中。
+
+请合法进行爬虫行为！
 
 ## Quick Start
 
